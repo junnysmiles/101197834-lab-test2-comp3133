@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Mission } from '../models/mission';
+import { SpacexapiService } from '../network/spacexapi.service';
 
 @Component({
   selector: 'app-missionlist',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MissionlistComponent implements OnInit {
 
-  constructor() { }
+  missions:Mission[] = [];
+
+  constructor(private dataService:SpacexapiService) {
+    this.getMissionList();
+  }
 
   ngOnInit(): void {
   }
 
+  getMissionList(){
+
+    this.dataService.getMissionList().subscribe(data=>{
+      this.missions = data;
+    });
+  }
 }
