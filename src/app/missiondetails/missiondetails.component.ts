@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Mission } from '../models/mission';
+import { SpacexapiService } from '../network/spacexapi.service';
 
 @Component({
   selector: 'app-missiondetails',
@@ -7,9 +10,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MissiondetailsComponent implements OnInit {
 
-  constructor() { }
+  mission?:Mission;
+
+  constructor(private dataService:SpacexapiService, private route:ActivatedRoute) {
+    this.route.params.subscribe(params=>
+      this.getMission(params['id'])
+    );
+  }
 
   ngOnInit(): void {
   }
 
+  getMission(id:number){
+    this.dataService.getMission(id).subscribe(data=>{
+      this.mission = data;
+    });
+  }
 }
