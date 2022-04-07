@@ -1,10 +1,47 @@
 <body class="mat-app-background">
   <div>
     <h1>
-      <a href="/"><mat-icon style="padding: 40px 0px 20px 50px; font-size:50px;"color="accent">arrow_back_ios</mat-icon></a>
+      <a href="/"><mat-icon style="padding: 40px 0px 20px 50px; font-size:50px;" color="accent">arrow_back_ios</mat-icon></a>
     </h1>
   </div>
   <div style="text-align:center">
     <h1 class="mat-display-2">SpaceX Missions Details</h1>
+  </div>
+  <div style="padding: 10px 20px" class="mat-app-background">
+    <mat-card style="padding: 50px 30px">
+      <img style="float: left;  height: 250px; width: 250px; padding-right: 40px; padding-bottom: 10px;" mat-card-lg-image src="{{ mission?.links?.mission_patch }}" />
+
+      <div>
+        <mat-card-title>Mission - {{ mission?.mission_name }}</mat-card-title>
+        <mat-card-content>Name: {{ mission?.mission_name }} </mat-card-content>
+        <mat-card-content>Launch Year: {{ mission?.launch_year }}</mat-card-content>
+      </div>
+
+      <div style="padding-top: 15px">
+        <mat-card-title>Rocket</mat-card-title>
+        <mat-card-content>Name: {{ mission?.rocket?.rocket_name }}</mat-card-content>
+        <mat-card-content>Name: {{ mission?.rocket?.rocket_type }}</mat-card-content>
+      </div>
+
+      <div style="padding-top: 15px">
+        <mat-card-title>Launch Site</mat-card-title>
+        <mat-card-content>Name: {{ mission?.launch_site?.site_name_long }}</mat-card-content>
+      </div>
+
+      <div style="padding-top: 15px">
+        <mat-card-title>Launch Details</mat-card-title>
+        <mat-card-content>{{ mission?.details }}</mat-card-content>
+      </div>
+
+      <div style="padding-top: 15px">
+        <mat-card-title>More Information on Launch Details</mat-card-title>
+      </div>
+
+      <div style="padding-top: 10px">
+        <a target="_blank" href="{{ mission?.links?.article_link }}" style="padding-right: 10px"><mat-icon color="accent">library_books</mat-icon></a>
+        <a target="_blank" href="{{ mission?.links?.wikipedia }}"><mat-icon color="accent" style="padding-right: 10px">public_icon</mat-icon></a>
+        <a target="_blank" href="{{ mission?.links?.video_link }}"><mat-icon color="accent" style="padding-right: 10px">videocam</mat-icon></a>
+      </div>
+    </mat-card>
   </div>
 </body>
