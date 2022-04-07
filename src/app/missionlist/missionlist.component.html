@@ -1,7 +1,7 @@
-<div>
-  <mat-list>
-    <mat-list-item>Flight one</mat-list-item>
-    <mat-list-item>Flight two</mat-list-item>
-    <mat-list-item>Flight three</mat-list-item>
-  </mat-list>
+<div *ngFor="let mission of missions" style="padding: 10px 20px">
+  <mat-card style="padding: 25px">
+    <mat-card-title>{{ mission.mission_name }}</mat-card-title>
+    <mat-card-subtitle>{{ mission.launch_year }}</mat-card-subtitle>
+    <mat-card-content>{{ mission.details }}</mat-card-content>
+  </mat-card>
 </div>

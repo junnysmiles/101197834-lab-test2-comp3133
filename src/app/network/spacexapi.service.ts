@@ -8,8 +8,6 @@ import { Observable } from 'rxjs';
 })
 export class SpacexapiService {
 
-  private URL = 'https://api.spacexdata.com/v3/launches'
-
   constructor(private httpClient: HttpClient) { }
 
   getMissionList(): Observable<Mission[]>{

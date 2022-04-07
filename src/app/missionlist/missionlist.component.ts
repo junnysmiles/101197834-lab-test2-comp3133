@@ -19,8 +19,8 @@ export class MissionlistComponent implements OnInit {
   }
 
   getMissionList(){
-
     this.dataService.getMissionList().subscribe(data=>{
+      console.log(data)
       this.missions = data;
     });
   }
